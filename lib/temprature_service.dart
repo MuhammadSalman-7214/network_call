@@ -6,10 +6,10 @@ import 'package:http/http.dart' as http;
 
 class TempratureAPIService {
 
-  static Future<TempratureResponse> fetchTemprature() async {
+  static Future<TempratureResponse> fetchTemprature(String city) async {
 
     final response =
-    await http.get("http://api.openweathermap.org/data/2.5/weather?q=Lahore&appid=55071231b3b046ed9d252d8733391b6b");
+    await http.get("http://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=55071231b3b046ed9d252d8733391b6b");
 
     //return parseTemprature(response.body);
     return compute(parseTemprature, response.body);
